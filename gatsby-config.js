@@ -1,15 +1,75 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `VIGNESH`,
+    profileSummary:
+      "I am an 22 year old, Indian Software engineer working at Learnyst, an Ed-tech startup with these technologies: Typescript, React, React Native.",
+    techStack: [
+      {
+        name: "HTML/CSS/Javascript",
+      },
+      {
+        name: `React`,
+      },
+      {
+        name: "React Native",
+      },
+      {
+        name: `Redux`,
+      },
+      {
+        name: "Typescript",
+      },
+    ],
+    siteThemeConfigs: {
+      backgroundColor: `#212121`,
+      primaryColor: `#14ffec`,
+      secondaryColor: `#0d7377`,
+      layoutColor: `#323232`,
+    },
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Vignesh`,
+      summary: `Software Engineer, Specializing in Frontend Engineering`,
     },
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `@vigneshph22`,
+      email: `phivigneshariharan@gmail.com`,
+      github: `https://github.com/VigneshHariharan`,
+      linkedIn: `www.linkedin.com/in/vignesh-frontend`,
     },
+    contactLink: [
+      {
+        mediaName: `twitter`,
+        link: `@vigneshph22`,
+      },
+      {
+        mediaName: "email",
+        link: `phivigneshariharan@gmail.com`,
+      },
+      {
+        mediaName: "github",
+        link: `https://github.com/VigneshHariharan`,
+      },
+      {
+        mediaName: "linkedIn",
+        linkedIn: `www.linkedin.com/in/vignesh-frontend`,
+      },
+    ],
+    hobbies: [
+      "Books, anime(dark/suspense/psychological/fantasy genres)",
+      "Favourite non fiction book: The subtle art of not giving f**k ",
+    ],
+    menuLinks: [
+      {
+        name: "home",
+        link: "/",
+      },
+      {
+        name: "about",
+        link: "/about",
+      },
+    ],
   },
   plugins: [
     {
@@ -17,6 +77,13 @@ module.exports = {
       options: {
         path: `${__dirname}/content/blog`,
         name: `blog`,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: ["Open Sans"],
+        display: "swap",
       },
     },
     {
@@ -63,8 +130,8 @@ module.exports = {
         name: `Gatsby Starter Blog`,
         short_name: `GatsbyJS`,
         start_url: `/`,
-        background_color: `#ffffff`,
-        theme_color: `#663399`,
+        background_color: `#040633`,
+        theme_color: `#05FFD2`,
         display: `minimal-ui`,
         icon: `content/assets/gatsby-icon.png`,
       },

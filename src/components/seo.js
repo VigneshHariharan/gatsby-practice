@@ -17,17 +17,13 @@ const SEO = ({ description, lang, meta, title }) => {
         site {
           siteMetadata {
             title
-            description
-            social {
-              twitter
-            }
           }
         }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  // const metaDescription = description || site.siteMetadata.description
 
   return (
     <Helmet
@@ -37,18 +33,18 @@ const SEO = ({ description, lang, meta, title }) => {
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
+        // {
+        //   name: `description`,
+        //   content: metaDescription,
+        // },
         {
           property: `og:title`,
           content: title,
         },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
+        // {
+        //   property: `og:description`,
+        //   content: metaDescription,
+        // },
         {
           property: `og:type`,
           content: `website`,
@@ -57,18 +53,18 @@ const SEO = ({ description, lang, meta, title }) => {
           name: `twitter:card`,
           content: `summary`,
         },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.social.twitter,
-        },
+        // {
+        //   name: `twitter:creator`,
+        //   content: site.siteMetadata.social.twitter,
+        // },
         {
           name: `twitter:title`,
           content: title,
         },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
+        // {
+        //   name: `twitter:description`,
+        //   content: metaDescription,
+        // },
       ].concat(meta)}
     />
   )
