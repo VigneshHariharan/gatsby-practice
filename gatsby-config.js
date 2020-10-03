@@ -64,10 +64,12 @@ module.exports = {
       {
         name: "home",
         link: "/",
+        subMenu: [],
       },
       {
         name: "about",
         link: "/about",
+        subMenu: [],
       },
     ],
   },

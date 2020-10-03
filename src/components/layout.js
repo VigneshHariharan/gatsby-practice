@@ -1,8 +1,31 @@
 import React from "react"
-import { Link } from "gatsby"
 import { rhythm } from "../utils/typography"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
-const Layout = ({ location, title, children, siteThemeConfigs, author }) => {
+const Layout = ({ children }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          siteThemeConfigs {
+            backgroundColor
+            primaryColor
+            secondaryColor
+            layoutColor
+          }
+          author {
+            summary
+          }
+        }
+      }
+    }
+  `)
+
+  const siteThemeConfigs = data.site.siteMetadata.siteThemeConfigs
+  const author = data.site.siteMetadata.author
+
+  const title = data.site.siteMetadata.title
   const {
     backgroundColor,
     primaryColor,

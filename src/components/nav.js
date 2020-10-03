@@ -1,54 +1,68 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
-
+import { graphql, useStaticQuery } from "gatsby"
 import { rhythm } from "../utils/typography"
 
-const Bio = () => {
+const Nav = ({ currentNav, changeNav, navStates, isBlog, isAbout }) => {
   const data = useStaticQuery(graphql`
-    query BioQuery {
+    query {
       site {
         siteMetadata {
-          menuLinks
+          siteThemeConfigs {
+            backgroundColor
+            primaryColor
+            secondaryColor
+            layoutColor
+          }
         }
       }
     }
   `)
 
-  // const { social } = data.site.siteMetadata
-  const { menuLinks } = data.site.siteMetadata
+  const siteThemeConfigs = data.site.siteMetadata.siteThemeConfigs
+  const { primaryColor } = siteThemeConfigs
   return (
     <div
       style={{
-        marginBottom: rhythm(1.5),
-        marginTop: rhythm(1),
+        marginBottom: rhythm(0.2),
+        marginTop: rhythm(0.2),
         fontFamily: "Open Sans",
+        display: "flex",
       }}
     >
-      <ul>
-        {menuLinks.map(link => (
-          <li key={link.name}>
-            <a
-              href={link.link}
-              aria-haspopup={
-                link.subMenu && link.subMenu.length > 0 ? true : false
-              }
-            >
-              {link.name}
-            </a>
-            {link.subMenu && link.subMenu.length > 0 ? (
-              <ul aria-label="submenu">
-                {link.subMenu.map(subLink => (
-                  <li key={subLink.name}>
-                    <a href={subLink.link}>{subLink.name}</a>
-                  </li>
-                ))}
-              </ul>
-            ) : null}
-          </li>
-        ))}
-      </ul>
+      <p
+        style={{
+          marginRight: rhythm(0.6),
+          color: isBlog ? primaryColor : "white",
+          padding: rhythm(0.2),
+          border: "1px solid",
+          borderColor: isBlog ? primaryColor : "white",
+          cursor: "pointer",
+          borderRadius: rhythm(0.3),
+          width: rhythm(2.5),
+          textAlign: "center",
+        }}
+        onClick={() => changeNav(navStates.BLOG)}
+      >
+        Blog
+      </p>
+      <p
+        style={{
+          marginRight: rhythm(1),
+          color: isAbout ? primaryColor : "white",
+          padding: rhythm(0.2),
+          border: "1px solid",
+          borderColor: isAbout ? primaryColor : "white",
+          cursor: "pointer",
+          borderRadius: rhythm(0.3),
+          width: rhythm(4),
+          textAlign: "center",
+        }}
+        onClick={() => changeNav(navStates.ABOUT)}
+      >
+        About me
+      </p>
     </div>
   )
 }
 
-export default Bio
+export default Nav

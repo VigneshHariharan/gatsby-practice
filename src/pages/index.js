@@ -1,53 +1,63 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import MyStory from "../components/story"
+import Nav from "../components/nav"
 import { rhythm } from "../utils/typography"
 
 const BlogIndex = ({ data, location }) => {
-  const siteTitle = data.site.siteMetadata.title
+  const navStates = {
+    BLOG: 0,
+    ABOUT: 1,
+  }
+  const [currentNav, setCurrentNav] = useState(navStates.BLOG)
+  const changeNav = navid => setCurrentNav(navid)
+  const isBlog = currentNav === navStates.BLOG
+  const isAbout = currentNav === navStates.ABOUT
+
   const posts = data.allMarkdownRemark.edges
-  const siteThemeConfigs = data.site.siteMetadata.siteThemeConfigs
-  const author = data.site.siteMetadata.author
   return (
-    <Layout
-      location={location}
-      title={siteTitle}
-      siteThemeConfigs={siteThemeConfigs}
-      author={author}
-    >
-      <SEO title="All posts" />
+    <Layout>
+      <SEO title="React" />
       <Bio />
-      <MyStory siteThemeConfigs={siteThemeConfigs} />
-      {posts.map(({ node }) => {
-        const title = node.frontmatter.title || node.fields.slug
-        return (
-          <article key={node.fields.slug}>
-            <header>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-            </header>
-            <section>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </section>
-          </article>
-        )
-      })}
+      <Nav
+        currentNav={currentNav}
+        changeNav={changeNav}
+        navStates={navStates}
+        isBlog={isBlog}
+        isAbout={isAbout}
+      />
+      {isAbout && <MyStory />}
+      {isBlog &&
+        posts.map(({ node }) => {
+          const title = node.frontmatter.title || node.fields.slug
+          return (
+            <article key={node.fields.slug}>
+              <header>
+                <h3
+                  style={{
+                    marginBottom: rhythm(1 / 4),
+                  }}
+                >
+                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                    {title}
+                  </Link>
+                </h3>
+                <small>{node.frontmatter.date}</small>
+              </header>
+              <section>
+                <p
+                  dangerouslySetInnerHTML={{
+                    __html: node.frontmatter.description || node.excerpt,
+                  }}
+                />
+              </section>
+            </article>
+          )
+        })}
     </Layout>
   )
 }
