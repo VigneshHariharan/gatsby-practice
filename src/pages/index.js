@@ -10,7 +10,6 @@ import { rhythm } from "../utils/typography"
 
 const BlogIndex = ({ data, location }) => {
   const siteThemeConfigs = data?.site?.siteMetadata?.siteThemeConfigs
-  console.log("data, :", data, siteThemeConfigs)
 
   const navStates = {
     BLOG: 0,
