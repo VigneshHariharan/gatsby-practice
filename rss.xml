@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[VIGNESH]]></title><description><![CDATA[A starter blog demonstrating what Gatsby can do.]]></description><link>https://gatsby-starter-blog-demo.netlify.app</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 07 Nov 2020 14:46:13 GMT</lastBuildDate><item><title><![CDATA[JavaScript Basics For React]]></title><description><![CDATA[Functions Closure Array methods Destructuring Functions In Javascript, you can do a lot more with functions. Because they are first class…]]></description><link>https://gatsby-starter-blog-demo.netlify.app/Javascript/</link><guid isPermaLink="false">https://gatsby-starter-blog-demo.netlify.app/Javascript/</guid><pubDate>Fri, 01 May 2015 22:12:03 GMT</pubDate><content:encoded>&lt;ul&gt;
+&lt;li&gt;Functions&lt;/li&gt;
+&lt;li&gt;Closure&lt;/li&gt;
+&lt;li&gt;Array methods&lt;/li&gt;
+&lt;li&gt;Destructuring&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Functions&lt;/h2&gt;
+&lt;p&gt;In Javascript, you can do a lot more with functions. Because they are &lt;strong&gt;first class functions&lt;/strong&gt;( Ya! it is a big thing ). To put it simply, a function acts like a variable in javascript.
+It can :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;be stored in variables.&lt;/li&gt;
+&lt;li&gt;be returned from a function.&lt;/li&gt;
+&lt;li&gt;be passed as arguments into another function.
+I will tell you why it is a big thing.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;I bet you have seen this thing(class) in other programming languages.&lt;/p&gt;
+&lt;!--
+&lt;code&gt;
+class Myclass{
+constructor(value){
+this.value = value;
+} --&gt;
+&lt;p&gt;}&lt;/p&gt;
+&lt;p&gt;What exactly is a class.It is sort of like template for creating objects and can be used to create multiple instances of objects.&lt;/p&gt;
+&lt;p&gt;Meaning i can do this:&lt;/p&gt;
+&lt;!-- &lt;code&gt;
+const newValue = new Myclass(&quot;one&quot;);
+const newValue2 = new Myclass(&quot;two&quot;);
+console.log(newValue.value) // one
+console.log(newValue2.value) // two
+&lt;/code&gt; --&gt;
+&lt;p&gt;Now here is how classes were written in javascript before es2016&lt;/p&gt;
+&lt;!--
+function IamClass(value){
+this.value = value;
+// we can learn about **this** later
+}
+
+const newValue = new IamClass(&quot;one&quot;);
+const newValue2 = new IamClass(&quot;two&quot;);
+console.log(newValue.value) // one
+console.log(newValue2.value) // two --&gt;
+&lt;p&gt;You see a function doesn’t neccessarily need to return anything.These types of functions is called constructor functions.&lt;/p&gt;
+&lt;!--
+&lt;code&gt;
+const dispatch = someFunction();
+// you see you can store the return value of a function
+// you can also do this
+const dispatch = someFunction;
+const dispatch = someFunction()()();
+
+const funky = (cb) =&gt; cb();
+&lt;/code&gt; --&gt;
+&lt;h3&gt;Closure&lt;/h3&gt;
+&lt;p&gt;Let’s see a common example for understanding closure a little bit.
+A lot of things happen in this snippet.For understanding this snippet you need to think about the scope and the call stack.&lt;/p&gt;
+&lt;!--
+&lt;code&gt;
+function counter(){
+let count = 0;
+// here we initialised a variable with a value
+return function countIt(){
+ count = count + 1;
+ // we changed the value of variable,but the resulting value depends where
+ // the function is invoked.
+ return count;
+ }
+}
+&lt;/code&gt; --&gt;
+&lt;p&gt;By the definition of w3schools (this made more sense than others for me)
+JavaScript variables can belong to the local or global scope.&lt;/p&gt;
+&lt;h1&gt;Global variables can be made local (private) with closures.&lt;/h1&gt;
+&lt;h3&gt;Now let’s define a react compon$$ent and how these javascript concepts are used:&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;sfs&lt;/strong&gt;fsf&lt;/p&gt;</content:encoded></item></channel></rss>
