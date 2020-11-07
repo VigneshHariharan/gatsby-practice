@@ -153,13 +153,12 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Gatsby Starter Blog`,
-        short_name: `GatsbyJS`,
+        name: `Vignesh Portfolio`,
+        short_name: `Vignesh`,
         start_url: `/`,
         background_color: `#040633`,
         theme_color: `#05FFD2`,
         display: `minimal-ui`,
-        icon: `content/assets/gatsby-icon.png`,
       },
     },
     `gatsby-plugin-react-helmet`,

@@ -43,7 +43,7 @@ const Layout = ({ children }) => {
       <header
         style={{
           textAlign: "center",
-          paddingTop: rhythm(2),
+          paddingTop: rhythm(1),
           paddingBottom: rhythm(1),
           position: "sticky",
         }}
