@@ -9,6 +9,9 @@ import Nav from "../components/nav"
 import { rhythm } from "../utils/typography"
 
 const BlogIndex = ({ data, location }) => {
+  const siteThemeConfigs = data?.site?.siteMetadata?.siteThemeConfigs
+  console.log("data, :", data, siteThemeConfigs)
+
   const navStates = {
     BLOG: 0,
     ABOUT: 1,
@@ -35,14 +38,26 @@ const BlogIndex = ({ data, location }) => {
         posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
           return (
-            <article key={node.fields.slug}>
+            <article
+              key={node.fields.slug}
+              style={{
+                borderTop: "1px solid",
+                borderTopColor: siteThemeConfigs?.layoutColor,
+                borderBottom: "1px solid",
+                borderBottomColor: siteThemeConfigs?.layoutColor,
+              }}
+            >
               <header>
                 <h3
                   style={{
+                    marginTop: rhythm(1),
                     marginBottom: rhythm(1 / 4),
                   }}
                 >
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                  <Link
+                    style={{ boxShadow: `none`, color: "inherit" }}
+                    to={node.fields.slug}
+                  >
                     {title}
                   </Link>
                 </h3>

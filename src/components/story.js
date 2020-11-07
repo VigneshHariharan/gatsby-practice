@@ -54,9 +54,9 @@ const MyStory = () => {
         }}
       >
         While creating a super simple arduino project, i found my interest in
-        programming, after that i started studying web development. After I
-        graduated with a Mechanical Engineering Degree, i worked at Think42 labs
-        as software developer with React and Nodejs.
+        programming,so i started exploring web development. After I graduated
+        with a Mechanical Engineering Degree, i worked at Think42 labs as
+        software developer with React and Nodejs.
       </p>
     </div>
   )

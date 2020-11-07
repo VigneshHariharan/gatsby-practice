@@ -75,6 +75,12 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://vigneshhariharan.github.io`,
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/blog`,
@@ -96,6 +102,12 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-remark-images`,
+      options: {
+        maxWidth: 590,
+      },
+    },
+    {
       resolve: `gatsby-transformer-remark`,
       options: {
         plugins: [
@@ -109,6 +121,18 @@ module.exports = {
             resolve: `gatsby-remark-responsive-iframe`,
             options: {
               wrapperStyle: `margin-bottom: 1.0725rem`,
+            },
+          },
+          {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+              path: `${__dirname}/content/assets`,
+            },
+          },
+          {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+              path: `${__dirname}/content/blog`,
             },
           },
           `gatsby-remark-prismjs`,
@@ -149,4 +173,5 @@ module.exports = {
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,
   ],
+  pathPrefix: "/vigneshhariharan.github.io",
 }
